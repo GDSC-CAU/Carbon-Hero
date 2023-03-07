@@ -1,12 +1,3 @@
-# steps:
-# - name: gcr.io/cloud-builders/docker
-#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/currency-api:${SHORT_SHA}', '--target', 'production', '.']
-
-# - name: 'gcr.io/cloud-builders/docker'
-#   args: ["push", "gcr.io/$PROJECT_ID/currency-api"]
-
-# - name: 'gcr.io/cloud-builders/gcloud'
-#   args: ['beta', 'run', 'deploy', 'currency-api', '--image', 'gcr.io/$PROJECT_ID/currency-api:${SHORT_SHA}', '--region', 'us-central1', '--platform', 'managed', '--memory', '128Mi', '--max-instances', '3' , '--allow-unauthenticated']
 steps:
   - name: node
     entrypoint: npm
@@ -14,13 +5,15 @@ steps:
   - name: node
     entrypoint: npm
     args: ['run', 'build']
-  - name: 'gcr.io/$PROJECT_ID/gcloud'
+  - name: 'gcr.io/cloud-builders/gcloud'
     args:
     - 'run'
     - 'deploy'
     - 'cloudrunservice'
     - '--image'
-    - 'gcr.io/$PROJECT_ID/container/hello'
+    - 'us-docker.pkg.dev/cloudrun/container/hello'
+    - '--port'
+    - '3000'
     - '--region'
     - 'us-central1'
     - '--platform'
