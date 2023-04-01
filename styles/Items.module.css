@@ -1,0 +1,16 @@
+.container {
+    padding: 0 2rem;
+}
+  
+.main {
+    /* background-image: url(https://images.app.goo.gl/oXdZpRWq8X1FTDzDA); */
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/green-5be28.appspot.com/o/story.jpg?alt=media&token=bb69bac7-53b8-43fc-a8fb-ca614adc1ad3');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    flex: 1;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0;
+}

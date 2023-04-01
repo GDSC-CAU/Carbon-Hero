@@ -1,0 +1,64 @@
+.container {
+  padding: 0 2rem;
+}
+
+.main {
+  background-image: url(https://i.stack.imgur.com/SvWWN.png);
+  /* background-image: url('https://firebasestorage.googleapis.com/v0/b/green-5be28.appspot.com/o/story.jpg?alt=media&token=bb69bac7-53b8-43fc-a8fb-ca614adc1ad3'); */
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.story_box {
+  flex-direction: column;
+  vertical-align: center;
+  width: 90%;
+}
+
+.story_txt {
+  text-align: center;
+}
+
+.navigation_btn {
+  align-items: flex-end;
+}
+
+.logo {
+  height: 1em;
+  margin-left: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #222;
+  }
+  .code {
+    background: #111;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
