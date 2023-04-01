@@ -84,3 +84,12 @@ And the actions provided includes personal, enterprise, and national actions.
 So, the users will get informed naturally while playing game about what they could do daily, 
 what enterprises could do, and what the government could do to decrease the Green House Effect.  
 
+# How To Run this Code
+Although this solution is deployed on web,  
+but if you want to run it by yourself on your local machine, please follow the instructions below.
+Before start, please install node.js, npm and yarn on your machine.  
+1. clone this repository
+2. run "yarn add" on your terminal(Make sure to be in the root directory of this project in CLI)
+3. With no error, run "yarn dev" to serve in dev mode.
+4. If you want to work with production mode, please run "yarn build" and "yarn start".
+5. You can see the application running on "localhost:3000"
