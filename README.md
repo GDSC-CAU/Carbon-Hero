@@ -5,6 +5,10 @@
 > what could be done in real world to decrease the green house effect and  
 > what contributes to the global warming and green house effect.  
 
+## The Demo
+You can play the game right away.  
+[Play Game!](https://carbon-hero.vercel.app/)
+
 ## The team members
 ### GDSC CAU(Chungang University) students
 - HoJoon Eum(GDSC Chungang University Lead)
@@ -35,7 +39,7 @@ From children to elders.
 ### How it works?
 This is a web game for desktop users.  
 The web page is supported by SSR(Server Side Rendering),   
-and it is served by Google Cloud Run.  
+and it is served by Vercel.  
 The Web application is built with React.js and Next.js.  
 The user data are stored in Realtime Database on Firebase. 
 The static files such as images are stored in Firestore on Firebase.  
@@ -65,16 +69,11 @@ This is the list of Google Products used in this solution.
 - Realtime Database
 - Firestore
 - Firebase Authentication
-- Google Cloud Build
-- Google Cloud Run
 
 We used Firestore and Realtime Database for our products.
 We store the user data for game in the Realtime Database.  
 Web store the static files such as images for items in the Firestore.
-We used firebase authentication with Google Provider.  
-
-The web application is served by Google Cloud Run.  
-The application is built using Google Cloud Build.
+We used firebase authentication with Google Provider.
 
 ### What values are provided to users or target groups
 This solution targets people who don't know what is Climate Change, especially the global warming due to green house effect.  
