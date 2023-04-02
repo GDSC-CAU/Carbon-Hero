@@ -1,4 +1,4 @@
-import {Stat, StatHelpText, StatLabel, StatNumber} from "@chakra-ui/stat";
+import { Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/stat";
 import GameOverSign from "../../components/GameOverSign";
 
 interface Props {
@@ -6,7 +6,7 @@ interface Props {
 }
 
 const Presenter = ({playTime}: Props) => {
-    if (playTime > 2035) {
+    if (playTime >= 2035) {
       return <GameOverSign />
     }
     return (

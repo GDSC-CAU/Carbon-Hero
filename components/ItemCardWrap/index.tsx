@@ -26,7 +26,7 @@ const ItemCardWrap = ({property, getCurrItem, selected}: Props) => {
                             // eslint-disable-next-line react/jsx-key
                             <Avatar onClick={() => {myClick(item)}}
                             size='2xl' name={item.name} src={item.img} p='1%' ml='1%'>
-                                <AvatarBadge boxSize='1.25em' bg='teal.300'> {item.tier} </AvatarBadge> 
+                                <AvatarBadge boxSize='1.25em' bg='teal.300' textColor='black'> {item.tier} </AvatarBadge>
                             </Avatar>
                         ))}
 

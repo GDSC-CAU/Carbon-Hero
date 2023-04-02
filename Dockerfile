@@ -1,29 +1,39 @@
-FROM node:14-alpine AS depedencies
-RUN apk add --no-cache lobc6-compat
-WORKDIR /Carbon-Hero
-COPY package.json package-lock.json ./
-RUN npm ci --only=production
+FROM node:19.6.0-alpine AS base
 
-FROM node:14-alpine AS depedencies
-WORKDIR /Carbon-Hero
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /widget-driven-development-template
+COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
+  elif [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
+
+FROM base AS builder
+WORKDIR /widget-driven-development-template
+COPY --from=deps /widget-driven-development-template/node_modules ./node_modules
 COPY . .
-COPY --from=dependencies /Carbon-Hero/node_modules ./node_modules
-RUN npm run build
 
-FROM node:14-alpine AS sunner
-WORKDIR /Carbon-Hero
+RUN yarn build
+
+FROM base AS runner
+WORKDIR /widget-driven-development-template
 
 ENV NODE_ENV production
 
-RUN addgropu -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S carbonherodev -u 1001
 
-COPY --from=builder --chown=next.js:node.js /Carbon-Hero/.next ./.next
-COPY --from=builder /Carbon-Hero/node_modules ./node_modules
-COPY --from=builder /Carbon-Hero/package.json ./package.json
+COPY --from=builder /widget-driven-development-template/public ./public
 
-USER nextjs
+COPY --from=builder --chown=carbonherodev:nodejs /widget-driven-development-template/.next ./.next
+COPY --from=builder /widget-driven-development-template/node_modules ./node_modules
+COPY --from=builder /widget-driven-development-template/package.json ./package.json
+
+
+USER carbonherodev 
 EXPOSE 3000
 
-CMD ["npm", "start"]
-
+CMD ["yarn", "start"]

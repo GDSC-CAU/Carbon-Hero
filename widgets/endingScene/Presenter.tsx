@@ -2,7 +2,8 @@ import Heading1 from "../../components/Heading1";
 import Heading2 from "../../components/Heading2";
 import LinkToNext from "../../components/LinkToNext";
 import {Center} from "@chakra-ui/layout";
-import {Card, CardFooter, CardHeader, Container} from "@chakra-ui/react";
+import {Button, Card, CardFooter, CardHeader, Container, Link} from "@chakra-ui/react";
+import {ExternalLinkIcon} from "@chakra-ui/icons";
 
 interface Props {
   isDefeat?: boolean;
@@ -25,6 +26,18 @@ const Presenter = ({
             </CardHeader>
             <CardFooter>
               <LinkToNext label={"Go back To Main"} nextPageRoute={""} />
+              <Link
+                href={"https://forms.gle/4hXDgR8emujh1k8B9"} isExternal
+                backgroundColor={"white"}
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                padding={"1rem"}
+                borderRadius={"10px"}
+                fontWeight={"bold"}
+              >
+                {"Give Us Feedback!"}
+              </Link>
             </CardFooter>
           </Card>
         </Container>
@@ -42,6 +55,18 @@ const Presenter = ({
             </CardHeader>
             <CardFooter>
               <LinkToNext label={"Start game again"} nextPageRoute={""} />
+              <Link
+                href={"https://forms.gle/4hXDgR8emujh1k8B9"} isExternal
+                backgroundColor={"white"}
+                display={"flex"}
+                flexDirection={"column"}
+                justifyContent={"center"}
+                padding={"1rem"}
+                borderRadius={"10px"}
+                fontWeight={"bold"}
+              >
+                {"Give Us Feedback!"}
+              </Link>
             </CardFooter>
           </Card>
         </Container>
